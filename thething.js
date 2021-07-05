@@ -10,6 +10,23 @@ window.onload = e=>{
             doAllOfThis(e)
         })
     });
+
+
+    document.querySelectorAll('.hello').forEach(e=>e.ondrag= e=>{
+        e.preventDefault()
+        e.target.style.left=e.pageX+'px'
+        e.target.style.top=e.pageY+'px'
+    })
+    document.querySelectorAll('.hello').forEach(e=>e.ondragend = e=>{
+        e.target.style.left=e.pageX+'px'
+        e.target.style.top=e.pageY+'px'
+        localStorage.setItem('theEl',JSON.stringify(document.body.innerHTML))
+    })
+    document.querySelectorAll('.hello').forEach(e=>e.oncontextmenu= e=>{
+        e.stopPropagation()
+        e.preventDefault();
+        doAllOfThis(e);
+    })
 }
 function doAllOfThis(e){
     var el = document.querySelector('.context-menu')
