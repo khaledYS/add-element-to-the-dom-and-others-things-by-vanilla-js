@@ -1,8 +1,7 @@
 window.onload = e=>{
     var theOriginalEl;
     if(document.body.innerHTML) theOriginalEl = JSON.stringify(document.body.innerHTML)
-    document.body.innerHTML = JSON.parse(localStorage.getItem('theEl'))
-    console.log(JSON.parse(localStorage.getItem('theEl')))
+    if(JSON.parse(localStorage.getItem('theEl'))) document.body.innerHTML = JSON.parse(localStorage.getItem('theEl'))
 
     document.querySelectorAll('.hello').forEach(element => {
         element.addEventListener('contextmenu',(e)=>{
